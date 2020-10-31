@@ -3,6 +3,8 @@ $background-color-black: rgba(0, 0, 0, .7);
 $background-color-pink: rgb(252, 170, 201);
 $background-color-blue: rgb(29, 43, 100);
 
+$background-color-light-blue: rgb(0, 37, 255);
+
 * {
   padding: 0;
   margin: 0;
@@ -34,13 +36,29 @@ a:active, a:link, a:hover {
   font-size: .85rem;
 }
 
-.margin-top-neg-1 {
+.u-margin-top-neg-1 {
   margin-top: -1rem;
 }
 
-.margin-bottom-1 {
+.u-margin-bottom-1 {
   margin-bottom: 1rem;
 }
+
+// When a specific form is being edited, it will become pink,
+// And when the form is submitted, it will become blue.
+.u-color-pink {
+  color: darken($background-color-pink, 20%) !important;
+}
+
+.u-color-blue {
+  color: $background-color-blue !important;
+}
+
+
+.u-color-light-blue {
+  color: $background-color-light-blue !important;
+}
+
 
 header {
   margin-top: 1rem;
@@ -100,10 +118,15 @@ header {
     max-width: 100%;
     margin: auto;
 
+    & ion-icon {
+      color: black;
+      font-size: 2rem;
+    }
+
     .btn {
       background-color: $background-color-blue;
       color: white;
-      transition: background-color 1s;
+      transition: background-color .1s;
 
       &:hover {
         background-color: darken($background-color-pink, 20%);

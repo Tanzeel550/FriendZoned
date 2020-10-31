@@ -35,7 +35,9 @@ export default class App extends React.Component {
                 about: this.refs.about.value
             }
         }, () => {
-            console.log(this.state.personal_info)
+            document.querySelector(".person-icon").classList.remove("u-color-pink")
+            document.querySelector(".person-icon").classList.add("u-color-light-blue")
+            document.querySelector(".analytics-icon").classList.add("u-color-pink")
         })
     }
 
@@ -48,7 +50,9 @@ export default class App extends React.Component {
                 password: this.refs.password.value
             }
         }, () => {
-            console.log(this.state.additional_info)
+            document.querySelector(".analytics-icon").classList.remove("u-color-pink")
+            document.querySelector(".analytics-icon").classList.add("u-color-light-blue")
+            document.querySelector(".terminal-icon").classList.add("u-color-pink")
         })
     }
 
@@ -62,7 +66,8 @@ export default class App extends React.Component {
             },
             isFormSubmitted: true
         }, () => {
-            console.log(this.state.account_info)
+            document.querySelector(".terminal-icon").classList.remove("u-color-pink")
+            document.querySelector(".terminal-icon").classList.add("u-color-light-blue")
         })
     }
 
@@ -72,21 +77,18 @@ export default class App extends React.Component {
         let additional_info;
         let accounts_info
 
-        const className = "form-control margin-bottom-1"
-        if (this.state.personal_info.first_name === undefined) {
+        const className = "form-control u-margin-bottom-1"
+        if (!this.state.personal_info.first_name) {
             personal_info = (
                 <form onSubmit={this.personal_infoSubmitted}>
-                    <input type="text" className={className} placeholder="First Name..." ref="first_name" required autoFocus/>
+                    <input type="text" className={className} placeholder="First Name..." ref="first_name" required
+                           autoFocus/>
                     <input type="text" className={className} placeholder="Last Name..." ref="last_name"/>
                     <textarea className={className} ref="about"> </textarea>
                     <input type="submit" className="btn" value="Submit"/>
                 </form>
             )
-        } else if (
-            this.state.additional_info.age === undefined &&
-            this.state.additional_info.email === undefined &&
-            this.state.additional_info.password === undefined
-        ) {
+        } else if (!this.state.additional_info.age) {
             // We are only checking for age because we know that other two are required and we don't need to check them
             additional_info = (
                 <form onSubmit={this.additionalInfoSubmitted}>
@@ -96,7 +98,7 @@ export default class App extends React.Component {
                     <input type="submit" className="btn" value="Submit"/>
                 </form>
             )
-        } else if (this.state.accounts_info.google === undefined && this.state.accounts_info.facebook === undefined && this.state.accounts_info.instagram === undefined) {
+        } else if (!this.state.accounts_info.google) {
             additional_info = undefined
             accounts_info = (
                 <form onSubmit={this.accountsInfoSubmitted}>

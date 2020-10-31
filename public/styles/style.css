@@ -20,11 +20,20 @@ a:active, a:link, a:hover {
 .font-small {
   font-size: .85rem; }
 
-.margin-top-neg-1 {
+.u-margin-top-neg-1 {
   margin-top: -1rem; }
 
-.margin-bottom-1 {
+.u-margin-bottom-1 {
   margin-bottom: 1rem; }
+
+.u-color-pink {
+  color: #f9478a !important; }
+
+.u-color-blue {
+  color: #1d2b64 !important; }
+
+.u-color-light-blue {
+  color: #0025ff !important; }
 
 header {
   margin-top: 1rem; }
@@ -57,9 +66,12 @@ header {
     background-color: white;
     max-width: 100%;
     margin: auto; }
+    .content .jumbotron ion-icon {
+      color: black;
+      font-size: 2rem; }
     .content .jumbotron .btn {
       background-color: #1d2b64;
       color: white;
-      transition: background-color 1s; }
+      transition: background-color .1s; }
       .content .jumbotron .btn:hover {
         background-color: #f9478a; }
